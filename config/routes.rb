@@ -4,4 +4,5 @@ SecureContentManager::Application.routes.draw do
 
   root :to => 'welcome#show'
 
+  match '*a', :to => 'errors#routing'
 end
