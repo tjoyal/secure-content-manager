@@ -31,6 +31,7 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
+    cancan (1.6.10)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -48,8 +49,12 @@ GEM
       multi_json (~> 1.0)
     haml (4.0.2)
       tilt
+    has_scope (0.5.1)
     hike (1.2.2)
     i18n (0.6.1)
+    inherited_resources (1.4.0)
+      has_scope (~> 0.5.0)
+      responders (~> 0.9)
     journey (1.0.4)
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
@@ -88,6 +93,8 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
+    responders (0.9.3)
+      railties (~> 3.1)
     sass (3.2.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -115,9 +122,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cancan
   coffee-rails (~> 3.2.1)
   devise
   haml
+  inherited_resources
   jquery-rails
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
