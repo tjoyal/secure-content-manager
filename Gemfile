@@ -21,3 +21,4 @@ gem 'cancan'
 
 gem 'thin'
 
+gem 'utilities'
