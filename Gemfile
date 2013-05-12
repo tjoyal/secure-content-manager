@@ -22,3 +22,5 @@ gem 'cancan'
 gem 'thin'
 
 gem 'utilities'
+
+gem 'twitter-bootstrap-rails'

@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  check_authorization
+  # todo: Fix device integration
+  # check_authorization
 
   before_filter :authenticate_user!
 
