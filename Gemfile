@@ -19,3 +19,5 @@ gem 'devise'
 gem 'inherited_resources'
 gem 'cancan'
 
+gem 'thin'
+
