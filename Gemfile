@@ -13,3 +13,5 @@ end
 gem 'jquery-rails'
 
 gem 'haml'
+
+gem 'devise'
