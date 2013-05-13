@@ -10,8 +10,8 @@ en:
       confirm: "Are you sure?"
       destroy: "Delete"
       new: "New"
-    titles:
-      edit: "Edit"
-      save: "Save"
-      new: "New"
-      delete: "Delete"
+#    titles:
+#      edit: "Edit"
+#      save: "Save"
+#      new: "New"
+#      delete: "Delete"
