@@ -2,7 +2,11 @@ SecureContentManager::Application.routes.draw do
 
   devise_for :users
 
-  resources :groups
+  resources :groups do
+    resources :server
+  end
+
+  resources :servers
 
   root :to => 'welcome#show'
 

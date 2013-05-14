@@ -1,0 +1,21 @@
+= bootstrap_header
+
+%dl.dl-horizontal
+  %dt
+    %strong
+      = resource_class.human_attribute_name(:name)
+      = ':'
+  %dd
+    = resource.name
+  %dt
+    %strong
+      = resource_class.human_attribute_name(:group)
+      = ':'
+  %dd
+    = resource.group.name
+
+.form-actions
+  = back_resource_button
+
+  = edit_resource_button
+  = delete_resource_button
