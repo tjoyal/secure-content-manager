@@ -9,7 +9,7 @@
   %tbody
     - collection.each do |resource|
       %tr
-        %td= link_to resource.name, group_path(resource)
+        %td= link_to resource.name, resource_path(resource)
         %td= l resource.created_at
         %td
           = edit_resource_button(resource, :size => :small)
