@@ -1,5 +1,4 @@
-.page-header
-  %h1=t '.title', :default => resource_class.model_name.human
+= bootstrap_header
 
 %dl.dl-horizontal
   %dt
@@ -10,12 +9,7 @@
     = @group.name
 
 .form-actions
-  = link_to t('.back', :default => t("helpers.links.back")),
-              groups_path, :class => 'btn'
-  = link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_group_path(@group), :class => 'btn'
-  = link_to t('.destroy', :default => t("helpers.links.destroy")),
-              group_path(@group),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger'
+  = back_resource_button
+
+  = edit_resource_button
+  = delete_resource_button
