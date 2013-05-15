@@ -66,8 +66,12 @@
                   = link_to "Logout", destroy_user_session_path, :method => :delete
 
     .container-fluid
-      = bootstrap_flash
-      = yield
+
+      - if content_for?(:sub_layout)
+        = yield :sub_layout
+      - else
+        = bootstrap_flash
+        = yield
 
       -#%footer
       -#  %p &copy; Company 2013

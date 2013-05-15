@@ -1,0 +1,27 @@
+- content_for :sub_layout do
+
+  .row-fluid
+    .span3
+
+      .treeGroup
+
+        .controls
+          .input-prepend
+            %span.add-on
+              %i.icon-search
+              %input.search{:placeholder => 'Search'}
+
+        .tree
+          %ul
+
+            - Group.all.each do |group|
+              %li{:rel => :folder}
+                = link_to group.name, '#'
+
+                %ul
+                  - group.servers.each do |server|
+                    %li{:rel => :file}
+                      = link_to server.name, '#'
+
+    .span9
+      = bootstrap_flash

@@ -8,7 +8,7 @@ SecureContentManager::Application.routes.draw do
 
   resources :servers
 
-  root :to => 'welcome#show'
+  root :to => 'home#show'
 
   match '*a', :to => 'errors#routing'
 end
