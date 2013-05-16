@@ -1,6 +1,4 @@
-
 $(document).ready ->
-
 
   $('.treeGroup').each ->
 
@@ -29,13 +27,10 @@ $(document).ready ->
               image: "/assets/jstree/static/folder.png"
 
 
-    tree.on 'click', "li[rel=folder] a", ->
+    tree.on 'click', "li[rel=folder] > a", (e) ->
+      e.preventDefault()
+      e.stopPropagation()
       tree.jstree('toggle_node', $(this).parent())
-
-    tree.on 'click', "li[rel=file] a", ->
-      path = $(this).attr('href')
-      alert path
-
 
     treeGroup.on 'keypress keydown keyup blur', 'input.search', ->
       search = $(this)

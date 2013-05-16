@@ -1,4 +1,4 @@
-= form_for resource, :html => { :class => 'form-horizontal' } do |f|
+= form_for [@group, resource], :html => { :class => 'form-horizontal' } do |f|
   .control-group
     = f.label :name, :class => 'control-label'
     .controls
@@ -15,5 +15,3 @@
   .form-actions
 
     = f.submit nil, :class => 'btn btn-primary'
-
-    = cancel_resource_path

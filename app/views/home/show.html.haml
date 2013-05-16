@@ -1,6 +1,6 @@
 - content_for :sub_layout do
 
-  .row-fluid
+  .row-fluid.ajax-hijacker{'data-target' => '#ajax_container'}
     .span3
 
       .treeGroup
@@ -21,7 +21,10 @@
                 %ul
                   - group.servers.each do |server|
                     %li{:rel => :file}
-                      = link_to server.name, '#'
+                      = link_to server.name, group_server_path(group, server)
 
-    .span9
+                  %li{:rel => :file}
+                    = link_to '+ new', new_group_server_path(group)
+
+    #ajax_container.span9
       = bootstrap_flash

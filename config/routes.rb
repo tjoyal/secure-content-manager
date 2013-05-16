@@ -3,10 +3,8 @@ SecureContentManager::Application.routes.draw do
   devise_for :users
 
   resources :groups do
-    resources :server
+    resources :servers
   end
-
-  resources :servers
 
   root :to => 'home#show'
 
