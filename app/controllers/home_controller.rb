@@ -5,35 +5,12 @@ class HomeController < ApplicationController
   def show
 
     respond_to do |format|
-      #format.json {
-      #
-      #  tree = Group.all.map do |group|
-      #
-      #    children = group.servers.map do |server|
-      #      view_context.link_to(server.name, group_server_path(group, server)).html_safe
-      #    end
-      #
-      #    children << view_context.link_to('+ new', new_group_server_path(group))
-      #
-      #    {
-      #        :id => "group_#{group.id}",
-      #        :data => view_context.link_to(group.name, '#'),
-      #        :state => :leaf,
-      #        :children => children,
-      #        :state => :open
-      #    }
-      #
-      #  end
-      #
-      #  render :json => tree.to_json
-      #}
       format.html
-
       format.json do
 
-        tree = Group.all.map do |group|
+        tree = Group.all.sort_by(&:name).map do |group|
 
-          children = group.servers.map do |server|
+          children = group.servers.sort_by(&:name).map do |server|
 
             {
               :attr => {
