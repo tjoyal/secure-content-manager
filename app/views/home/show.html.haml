@@ -12,19 +12,6 @@
               %input.search{:placeholder => 'Search'}
 
         .tree
-          %ul
-
-            - Group.all.each do |group|
-              %li{:rel => :folder}
-                = link_to group.name, '#'
-
-                %ul
-                  - group.servers.each do |server|
-                    %li{:rel => :file}
-                      = link_to server.name, group_server_path(group, server)
-
-                  %li{:rel => :file}
-                    = link_to '+ new', new_group_server_path(group)
 
     #ajax_container.span9
       = bootstrap_flash

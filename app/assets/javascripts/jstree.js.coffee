@@ -1,13 +1,15 @@
-$(document).ready ->
+syncTree = (tree) ->
 
-  $('.treeGroup').each ->
+  data = $.ajax({
+    url: '/home.json',
+    async: false
+  }).responseText
+  data = JSON.parse(data)
 
-    treeGroup = $(this)
-    tree = $(this).find('.tree')
-
+  if tree.html() == ''
     tree.jstree
       plugins:
-        [ "themes", "html_data", "ui", "core", "types", "search", "adv_search" ]
+        [ "themes", "json_data", "ui", "core", "types", "search", "adv_search" ]
       search:
         case_insensitive: true
         show_only_matches: true
@@ -19,15 +21,31 @@ $(document).ready ->
           root:
             icon:
               image: "/assets/jstree/static/root.png"
-          file:
+          server:
             icon:
               image: "/assets/jstree/static/file.png"
-          folder:
+          group:
             icon:
               image: "/assets/jstree/static/folder.png"
 
+      json_data:
+        data: data
 
-    tree.on 'click', "li[rel=folder] > a", (e) ->
+  else
+    $.jstree._focused()._get_settings().json_data.data = data
+    tree.jstree('refresh')
+
+
+$(document).ready ->
+
+  $('.treeGroup').each ->
+
+    treeGroup = $(this)
+    tree = $(this).find('.tree')
+
+    syncTree(tree)
+
+    tree.on 'click', "li[rel=group] > a", (e) ->
       e.preventDefault()
       e.stopPropagation()
       tree.jstree('toggle_node', $(this).parent())
@@ -49,3 +67,9 @@ $(document).ready ->
         tree.jstree('search', value, true)
       else
         # Ignore if less than 2 characters
+
+  $(document).on 'ajaxAction', (e) ->
+
+    $('.treeGroup').each ->
+      tree = $(this).find('.tree')
+      syncTree(tree)

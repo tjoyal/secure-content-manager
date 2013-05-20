@@ -13,6 +13,7 @@ $(document).ready ->
       url: href,
       success: (result) ->
         $(target).html(result)
+        $(document).trigger('ajaxAction')
     }
 
     if type = $(this).data('method')
@@ -31,14 +32,13 @@ $(document).ready ->
 
     data = $(this).serialize()
 
-    # todo : Map all cases on method
-
     options = {
       type: method,
       url: action,
       data: data,
       success: (response) ->
         $(target).html(response)
+        $(document).trigger('ajaxAction')
     }
 
     $.ajax(options)
