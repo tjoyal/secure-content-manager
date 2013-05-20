@@ -1,18 +1,12 @@
-= bootstrap_header
+= bootstrap_header(resource.name)
 
 %dl.dl-horizontal
-  %dt
-    %strong
-      = resource_class.human_attribute_name(:name)
-      = ':'
-  %dd
-    = resource.name
-  %dt
-    %strong
-      = resource_class.human_attribute_name(:group)
-      = ':'
-  %dd
-    = resource.group.name
+  -#%dt
+  -#  %strong
+  -#    = resource_class.human_attribute_name(:group)
+  -#    = ':'
+  -#%dd
+  -#  = resource.group.name
 
 .form-actions
   = edit_resource_button
