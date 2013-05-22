@@ -1,0 +1,15 @@
+%h3
+  Basic Information
+
+%table.table.table-bordered.server_data
+  %tbody
+    %tr
+      %th
+        = f.label :name
+      %td
+        = f.text_field :name, :class => 'text_field'
+    %tr
+      %th
+        = f.label :group
+      %td
+        = f.select :group_id, Group.all.map {|x| [x.name, x.id]}

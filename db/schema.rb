@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20130521111222) do
 
   create_table "server_data_keys", :force => true do |t|
     t.integer  "server_id"
-    t.text     "note"
+    t.text     "name"
     t.text     "private_key"
     t.text     "public_key"
     t.datetime "created_at",  :null => false

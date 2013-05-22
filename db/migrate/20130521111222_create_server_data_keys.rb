@@ -4,7 +4,7 @@ class CreateServerDataKeys < ActiveRecord::Migration
 
       t.references :server
 
-      t.text :note
+      t.text :name
       t.text :private_key
       t.text :public_key
 

@@ -1,19 +1,23 @@
 .fields
-  %dl.dl-horizontal
-    %dt
-      %strong
-        = 'Note :'
-    %dd
-      = f.text_field :note
-    %dt
-      %strong
-        = 'Private key :'
-    %dd
-      = f.text_area :private_key, :rows => '5', :cols => '80'
-    %dt
-      %strong
-        = 'Public key :'
-    %dd
-      = f.text_area :public_key, :rows => '5', :cols => '80'
+  %h3
+    Key
+
+  %table.table.table-bordered.server_data.server_data_key
+    %tbody
+      %tr
+        %th
+          = f.label :name
+        %td
+          = f.text_field :name, :class => 'text_field'
+      %tr
+        %th
+          = f.label :private_key
+        %td
+          = f.text_area :private_key
+      %tr
+        %th
+          = f.label :public_key
+        %td
+          = f.text_area :public_key
 
   = link_to_remove_fields "remove", f

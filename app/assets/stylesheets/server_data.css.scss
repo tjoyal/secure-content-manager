@@ -1,0 +1,26 @@
+table.server_data {
+
+  width: 100%;
+
+  th {
+    width: 20%;
+    text-align: right;
+
+    label {
+      font-weight: bold;
+
+      &:after {
+        content: ' :'
+      }
+    }
+
+  }
+
+  &.server_data_key {
+    textarea {
+      width: 500px;
+      height: 100px;
+    }
+  }
+
+}
