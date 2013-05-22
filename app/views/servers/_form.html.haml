@@ -11,7 +11,16 @@
       = f.select :group_id, Group.all.map {|x| [x.name, x.id]}
 
 
+  = f.fields_for :server_data_keys do |data|
+    = render 'server_data_key_fields', :f => data
+
+  .new_section_links
+    = link_to_add_fields "Add Data Key", f, :server_data_keys
+
+
+
+
+
 
   .form-actions
-
     = f.submit nil, :class => 'btn btn-primary'

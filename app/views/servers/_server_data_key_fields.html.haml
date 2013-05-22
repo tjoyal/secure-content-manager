@@ -1,0 +1,19 @@
+.fields
+  %dl.dl-horizontal
+    %dt
+      %strong
+        = 'Note :'
+    %dd
+      = f.text_field :note
+    %dt
+      %strong
+        = 'Private key :'
+    %dd
+      = f.text_area :private_key, :rows => '5', :cols => '80'
+    %dt
+      %strong
+        = 'Public key :'
+    %dd
+      = f.text_area :public_key, :rows => '5', :cols => '80'
+
+  = link_to_remove_fields "remove", f

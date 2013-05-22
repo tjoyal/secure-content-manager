@@ -2,12 +2,15 @@ $(document).ready ->
 
   $('.ajax-hijacker').on 'click', 'a', (e) ->
 
-    e.preventDefault()
-    e.stopPropagation()
-
     target = $(this).closest('.ajax-hijacker').data('target')
 
     href = $(this).attr('href')
+
+    if href == '#'
+      return
+
+    e.preventDefault()
+    e.stopPropagation()
 
     options = {
       url: href,
