@@ -5,4 +5,10 @@ class Server < ActiveRecord::Base
 
   has_many :server_data_keys, :dependent => :destroy
   accepts_nested_attributes_for :server_data_keys, :allow_destroy => true #:reject_if => lambda { |a| a[:content].blank? },
+
+  def self.data_types
+    [
+        :server_data_keys
+    ]
+  end
 end

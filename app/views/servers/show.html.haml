@@ -1,9 +1,10 @@
 = bootstrap_header(resource.name)
 
-= render 'servers/basics/show', :resource => resource
+= render 'basic_show', :resource => resource
 
-- resource.server_data_keys.each do |key|
-  = render 'servers/server_data_keys/show', :resource => key
+- Server.data_types.each do |type|
+  - resource.send(type).each do |key|
+    = render "#{type}/show", :resource => key
 
 .form-actions
   = edit_resource_button
