@@ -1,0 +1,20 @@
+%h3
+  Key
+
+%table.table.table-bordered.server_data.server_data_key
+  %tbody
+    %tr
+      %th
+        = resource.class.human_attribute_name :name
+      %td
+        = resource.name
+    %tr
+      %th
+        = resource.class.human_attribute_name :private_key
+      %td
+        = resource.private_key
+    %tr
+      %th
+        = resource.class.human_attribute_name :public_key
+      %td
+        = resource.public_key

@@ -1,0 +1,15 @@
+%h3
+  Basic Information
+
+%table.table.table-bordered.server_data
+  %tbody
+    %tr
+      %th
+        = resource.class.human_attribute_name :name
+      %td
+        = resource.name
+    %tr
+      %th
+        = resource.class.human_attribute_name :group
+      %td
+        = resource.group.name

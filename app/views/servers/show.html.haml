@@ -1,12 +1,9 @@
 = bootstrap_header(resource.name)
 
-%dl.dl-horizontal
-  -#%dt
-  -#  %strong
-  -#    = resource_class.human_attribute_name(:group)
-  -#    = ':'
-  -#%dd
-  -#  = resource.group.name
+= render 'servers/basics/show', :resource => resource
+
+- resource.server_data_keys.each do |key|
+  = render 'servers/server_data_keys/show', :resource => key
 
 .form-actions
   = edit_resource_button
