@@ -6,6 +6,12 @@ syncTree = (tree) ->
   }).responseText
   data = JSON.parse(data)
 
+
+  initially_select = []
+  if window.location.hash != ''
+    id = window.location.hash.substr(1)
+    initially_select.push(id)
+
   if tree.html() == ''
     tree.jstree
       plugins:
@@ -15,7 +21,9 @@ syncTree = (tree) ->
         show_only_matches: true
       themes:
         theme: 'classic'
-
+      ui:
+        select_limit: 1
+        initially_select: initially_select
       types:
         types:
           root:
@@ -30,6 +38,14 @@ syncTree = (tree) ->
 
       json_data:
         data: data
+
+
+    # On load
+    tree.bind "loaded.jstree", ->
+      # hack... :(
+      setTimeout ->
+        tree.find('a.jstree-clicked').click()
+      , 50
 
   else
     $.jstree._focused()._get_settings().json_data.data = data
@@ -49,6 +65,14 @@ $(document).ready ->
       e.preventDefault()
       e.stopPropagation()
       tree.jstree('toggle_node', $(this).parent())
+
+    tree.on 'click', "li[rel=server] > a", (e) ->
+      hash = '#' + $(this).parent().attr('id')
+      if history.pushState
+        history.pushState(null, null, hash);
+      else
+        location.hash = hash;
+
 
     treeGroup.on 'keypress keydown keyup blur', 'input.search', ->
       search = $(this)
