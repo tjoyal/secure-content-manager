@@ -23,4 +23,11 @@ table.server_data {
     }
   }
 
+  &.server_data_note {
+    textarea {
+      width: 500px;
+      height: 100px;
+    }
+  }
+
 }

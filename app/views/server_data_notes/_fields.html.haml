@@ -1,0 +1,18 @@
+.fields
+  %h3
+    Notes
+
+  %table.table.table-bordered.server_data.server_data_note
+    %tbody
+      %tr
+        %th
+          = f.label :name
+        %td
+          = f.text_field :name, :class => 'text_field'
+      %tr
+        %th
+          = f.label :note
+        %td
+          = f.text_area :note
+
+  = link_to_remove_fields "remove", f

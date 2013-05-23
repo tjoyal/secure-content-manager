@@ -9,6 +9,7 @@ SecureContentManager::Application.routes.draw do
           get :private_key
         end
       end
+      resources :server_data_notes
     end
   end
 
