@@ -2,6 +2,9 @@
   %h3
     Notes
 
+
+    = link_to_remove_fields "remove", f
+
   %table.table.table-bordered.server_data.server_data_note
     %tbody
       %tr
@@ -14,5 +17,3 @@
           = f.label :note
         %td
           = f.text_area :note
-
-  = link_to_remove_fields "remove", f

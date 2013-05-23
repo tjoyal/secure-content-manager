@@ -2,6 +2,8 @@
   %h3
     Key
 
+    = link_to_remove_fields "remove", f
+
   %table.table.table-bordered.server_data.server_data_key
     %tbody
       %tr
@@ -19,5 +21,3 @@
           = f.label :public_key
         %td
           = f.text_area :public_key
-
-  = link_to_remove_fields "remove", f
