@@ -13,7 +13,6 @@ It is a working but FAR FROM READY FOR PRODUCTION prototype of what I need. Wait
 - Cancan
 - Copy to clip directly(timed)
 - Data Types in the form of plugins (external repositories)
-- Deep Linking
 - Encrypt in database
 - Toggle Visibility of sensitive information
 - Some mode data types
