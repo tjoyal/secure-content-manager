@@ -14,7 +14,7 @@
 
       %ul.dropdown-menu
         - Server.data_types.each do |type|
-          %li= link_to_add_fields "Add #{type}", f, type, "#{type}/fields"
+          %li= link_to_add_fields "Add #{type}", f, type, :partial => "#{type}/fields", :parent => '.new_section_links'
 
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'

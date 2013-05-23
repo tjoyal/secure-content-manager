@@ -6,11 +6,14 @@ function remove_fields(link) {
     $(link).closest(".fields").hide();
 }
 
-function add_fields(link, association, content) {
+function add_fields(link, association, content, parent) {
     var new_id = new Date().getTime();
     var regexp = new RegExp("new_" + association, "g");
 
     var fields = content.replace(regexp, new_id);
 
-    $(link).parent().before(fields);
+    if (parent == '')
+        $(link).parent().before(fields);
+    else
+        $(link).closest(parent).before(fields);
 }

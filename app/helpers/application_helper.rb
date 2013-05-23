@@ -13,8 +13,11 @@ module ApplicationHelper
     html.join.html_safe
   end
 
-  def link_to_add_fields(name, f, association, partial = nil)
+  def link_to_add_fields(name, f, association, *args)
 
+    options = args.extract_options!
+
+    partial = options[:partial]
     unless partial
       partial = association.to_s.singularize + "_fields"
     end
@@ -23,7 +26,7 @@ module ApplicationHelper
     fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
       render(partial, :f => builder)
     end
-    link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
+    link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\", \"#{options[:parent]}\")")
   end
 
 end
