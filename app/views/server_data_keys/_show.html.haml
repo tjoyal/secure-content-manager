@@ -12,9 +12,9 @@
       %th
         = resource.class.human_attribute_name :private_key
       %td
-        = resource.private_key
+        %pre= resource.private_key
     %tr
       %th
         = resource.class.human_attribute_name :public_key
       %td
-        = resource.public_key
+        %pre= resource.public_key
