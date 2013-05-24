@@ -1,7 +1,7 @@
 %h3
   Key
 
-%table.table.table-bordered.server_data.server_data_key
+%table.table.table-bordered.server-data.server-data-key
   %tbody
     %tr
       %th
@@ -12,9 +12,17 @@
       %th
         = resource.class.human_attribute_name :private_key
       %td
-        %pre= resource.private_key
+
+        .toggle-key{:type => :button, 'data-resource-url' => private_key_group_server_server_data_key_path(resource.server.group, resource.server, resource)}
+          %button.btn.btn-success.btn-mini
+            Toggle
+
     %tr
       %th
         = resource.class.human_attribute_name :public_key
       %td
-        %pre= resource.public_key
+
+        .toggle-key
+          %button.btn.btn-success.btn-mini
+            Toggle
+          %pre.info{:style=>'display: none'}= resource.public_key
