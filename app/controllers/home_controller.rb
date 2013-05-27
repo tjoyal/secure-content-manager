@@ -1,16 +1,18 @@
 class HomeController < ApplicationController
 
-  skip_authorization_check
-
   def show
+
+    groups = Group.accessible_by(current_ability)
 
     respond_to do |format|
       format.html
       format.json do
 
-        tree = Group.all.sort_by(&:name).map do |group|
+        tree = groups.sort_by(&:name).map do |group|
 
-          children = group.servers.sort_by(&:name).map do |server|
+          servers = Group.accessible_by(current_ability)
+
+          children = servers.sort_by(&:name).map do |server|
 
             {
               :attr => {

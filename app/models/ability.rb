@@ -11,6 +11,9 @@ class Ability
     if user && user.admin?
       #can :manage, [Project, ArtifactType, User]
     else
+      can :read, Group
+      can :read, Server
+
       #can :read, Project, :user_projects => { :id => user.user_project_ids }
 
       #can :read, ArtifactType do |artifact_type|
