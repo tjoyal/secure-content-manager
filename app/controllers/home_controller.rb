@@ -10,7 +10,7 @@ class HomeController < ApplicationController
 
         tree = groups.sort_by(&:name).map do |group|
 
-          servers = Group.accessible_by(current_ability)
+          servers = group.servers.accessible_by(current_ability)
 
           children = servers.sort_by(&:name).map do |server|
 
