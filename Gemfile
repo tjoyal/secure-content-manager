@@ -24,3 +24,6 @@ gem 'thin'
 gem 'utilities'
 
 gem 'twitter-bootstrap-rails'
+
+# Javascript runtime
+gem 'therubyracer'
