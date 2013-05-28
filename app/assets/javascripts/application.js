@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require jstree/jstree
+//= require zero_clipboard/ZeroClipboard
 //= require_tree .

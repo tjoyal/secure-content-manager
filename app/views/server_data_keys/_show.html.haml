@@ -12,11 +12,7 @@
       %th
         = resource.class.human_attribute_name :private_key
       %td
-
-        .toggle-key{:type => :button, 'data-resource-url' => private_key_group_server_server_data_key_path(resource.server.group, resource.server, resource)}
-          %button.btn.btn-success.btn-mini
-            Toggle
-
+        = server_hidden_data private_key_group_server_server_data_key_path(resource.server.group, resource.server, resource)
     %tr
       %th
         = resource.class.human_attribute_name :public_key

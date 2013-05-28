@@ -8,10 +8,10 @@ It is a working but FAR FROM READY FOR PRODUCTION prototype of what I need. Wait
 
 ## Ideas in the backlog
 
+- Access to data via api
 - Audit
 - Backup solution
 - Cancan
-- Copy to clip directly(timed)
 - Data Types in the form of plugins (external repositories)
 - Encrypt in database
 - Toggle Visibility of sensitive information
