@@ -4,11 +4,6 @@
 
   = render 'form_user_group', :f => f
 
-  .new-section-links
-    .btn-group
-    - html_options = {:class => ['btn', 'btn-warning']}
-    = link_to_add_fields "Add User", f, :user_groups, :partial => "form_user_group_fields", :parent => '.new-section-links', :html_options => html_options
-
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = cancel_resource_path

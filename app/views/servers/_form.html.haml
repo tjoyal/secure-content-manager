@@ -2,19 +2,19 @@
 
   = render 'basic_fields', :f => f
 
-  - Server.data_types.each do |type|
-    = f.fields_for type do |data|
-      = render "#{type}/fields", :f => data
+  #server-data
+    - Server.data_types.each do |type|
+      = f.fields_for type do |data|
+        = render "#{type}/fields", :f => data
 
-  .new_section_links
-    .btn-group
-      = link_to '#', :class => ['btn', 'btn-warning', 'dropdown-toggle'], 'data-toggle' => 'dropdown' do
-        New Section
-        %span.caret
+  .btn-group
+    = link_to '#', :class => ['btn', 'btn-warning', 'dropdown-toggle'], 'data-toggle' => 'dropdown' do
+      New Section
+      %span.caret
 
-      %ul.dropdown-menu
-        - Server.data_types.each do |type|
-          %li= link_to_add_fields "Add #{type}", f, type, :partial => "#{type}/fields", :parent => '.new_section_links'
+    %ul.dropdown-menu
+      - Server.data_types.each do |type|
+        %li= link_to_add_fields "Add #{type}", f, type, :partial => "#{type}/fields", :container => '#server-data'
 
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'

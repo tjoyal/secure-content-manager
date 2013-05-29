@@ -2,7 +2,7 @@
   %h3
     Users
 
-  %table.table.table-bordered
+  %table.table.table-bordered.user-groups
     %thead
       %tr
         %th
@@ -18,3 +18,10 @@
 
       = f.fields_for :user_groups do |data|
         = render 'form_user_group_fields', :f => data
+
+    %tfoot
+      %tr
+        %td{:colspan => 4}
+
+          - html_options = {:class => ['btn', 'btn-warning']}
+          = link_to_add_fields "Add User", f, :user_groups, :partial => "form_user_group_fields", :container => 'table.user-groups tbody', :html_options => html_options

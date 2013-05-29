@@ -6,13 +6,13 @@ window.remove_fields = (link) ->
   $(link).closest('.fields').hide()
 
 
-window.add_fields = (link, association, content, parent) ->
+window.add_fields = (link, association, content, container = '') ->
   new_id = new Date().getTime()
   regexp = new RegExp('new_' + association, 'g')
 
   fields = content.replace(regexp, new_id)
 
-  if (parent == '')
-    $(link).parent().before(fields)
+  if (container == '')
+    $(link).parent().append(fields)
   else
-    $(link).closest(parent).before(fields)
+    $(container).append(fields)
