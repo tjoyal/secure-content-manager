@@ -8,6 +8,9 @@
   %dd
     = resource.name
 
+- resource.user_groups.each do |key|
+  = render "user_group_show", :resource => key
+
 .form-actions
   = back_resource_button
 

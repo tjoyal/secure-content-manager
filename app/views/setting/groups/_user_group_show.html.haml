@@ -1,0 +1,25 @@
+%h3
+  User
+
+%table.table.table-bordered
+  %thead
+    %tr
+      %th
+        = resource.class.human_attribute_name :user
+      %th
+        = resource.class.human_attribute_name :read
+      %th
+        = resource.class.human_attribute_name :edit
+      %th
+        = resource.class.human_attribute_name :manage
+
+  %tbody
+    %tr
+      %td
+        = resource.user.email
+      %td
+        = resource.read
+      %td
+        = resource.edit
+      %td
+        = resource.manage

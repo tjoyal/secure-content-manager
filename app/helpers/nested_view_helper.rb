@@ -17,16 +17,15 @@ module NestedViewHelper
 
     options = args.extract_options!
 
-    partial = options[:partial]
-    unless partial
-      partial = association.to_s.singularize + "_fields"
-    end
+    partial      = options.delete(:partial)      || association.to_s.singularize + "_fields"
+    parent       = options.delete(:parent)       || ''
+    html_options = options.delete(:html_options) || {}
 
     new_object = f.object.class.reflect_on_association(association).klass.new
     fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
       render(partial, :f => builder)
     end
-    link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\", \"#{options[:parent]}\")")
+    link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\", \"#{parent}\")", html_options)
   end
 
 end

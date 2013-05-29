@@ -1,0 +1,28 @@
+.fields
+  %h3
+    Users
+
+    = link_to_remove_fields "remove", f
+
+  %table.table.table-bordered
+    %thead
+      %tr
+        %th
+          = f.label :user
+        %th
+          = f.label :read
+        %th
+          = f.label :edit
+        %th
+          = f.label :manage
+
+    %tbody
+      %tr
+        %td
+          = f.select :user_id, User.all.map {|x| [x.email, x.id]}
+        %td
+          = f.check_box :read
+        %td
+          = f.check_box :edit
+        %td
+          = f.check_box :manage
