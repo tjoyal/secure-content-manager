@@ -2,8 +2,7 @@
 
   = render 'form_basic_fields', :f => f
 
-  = f.fields_for :user_groups do |data|
-    = render 'form_user_group_fields', :f => data
+  = render 'form_user_group', :f => f
 
   .new-section-links
     .btn-group

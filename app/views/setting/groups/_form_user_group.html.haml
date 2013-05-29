@@ -1,0 +1,20 @@
+.fields
+  %h3
+    Users
+
+  %table.table.table-bordered
+    %thead
+      %tr
+        %th
+          = UserGroup.human_attribute_name :user
+        %th
+          = UserGroup.human_attribute_name :read
+        %th
+          = UserGroup.human_attribute_name :edit
+        %th
+          = UserGroup.human_attribute_name :manage
+
+    %tbody
+
+      = f.fields_for :user_groups do |data|
+        = render 'form_user_group_fields', :f => data
