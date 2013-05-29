@@ -14,7 +14,7 @@ SecureContentManager::Application.routes.draw do
     end
   end
 
-  namespace :settings do
+  namespace :setting do
     resources :groups
   end
 
