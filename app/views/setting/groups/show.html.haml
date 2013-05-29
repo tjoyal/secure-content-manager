@@ -8,8 +8,34 @@
   %dd
     = resource.name
 
-- resource.user_groups.each do |key|
-  = render "user_group_show", :resource => key
+
+%h3
+  User
+
+%table.table.table-bordered
+  %thead
+    %tr
+      %th
+        = resource.class.human_attribute_name :user
+      %th
+        = resource.class.human_attribute_name :read
+      %th
+        = resource.class.human_attribute_name :edit
+      %th
+        = resource.class.human_attribute_name :manage
+
+  %tbody
+    - resource.user_groups.each do |user_group|
+      %tr
+        %td
+          = user_group.user.email
+        %td
+          = user_group.read
+        %td
+          = user_group.edit
+        %td
+          = user_group.manage
+
 
 .form-actions
   = back_resource_button

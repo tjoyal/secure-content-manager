@@ -1,14 +1,14 @@
 = form_for [:setting, resource], :html => { :class => 'form-horizontal' } do |f|
 
-  = render 'basic_fields', :f => f
+  = render 'form_basic_fields', :f => f
 
   = f.fields_for :user_groups do |data|
-    = render "user_group_fields", :f => data
+    = render 'form_user_group_fields', :f => data
 
   .new-section-links
     .btn-group
     - html_options = {:class => ['btn', 'btn-warning']}
-    = link_to_add_fields "Add User", f, :user_groups, :partial => "user_group_fields", :parent => '.new-section-links', :html_options => html_options
+    = link_to_add_fields "Add User", f, :user_groups, :partial => "form_user_group_fields", :parent => '.new-section-links', :html_options => html_options
 
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
