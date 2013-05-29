@@ -14,6 +14,10 @@ SecureContentManager::Application.routes.draw do
     end
   end
 
+  namespace :settings do
+    resources :groups
+  end
+
   resource :home, :controller => :home
 
   root :to => 'home#show'
