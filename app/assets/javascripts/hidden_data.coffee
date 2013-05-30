@@ -1,12 +1,12 @@
 $(document).ready ->
 
-  getServerHiddenData = (element) ->
+  getHiddenData = (element) ->
 
     if !element.data('resource-data')
       resourceUrl = element.data('resource-url')
 
       if resourceUrl == undefined
-        throw "Unable to get server data without a resource url"
+        throw "Unable to get data without a resource url"
 
       data = $.ajax({
         url: resourceUrl,
@@ -18,12 +18,12 @@ $(document).ready ->
     element.data('resource-data')
 
 
-  $(document).on 'click', '.server-hidden-data button.toggle', (e) ->
+  $(document).on 'click', '.hidden-data button.toggle', (e) ->
 
     e.preventDefault()
     e.stopPropagation()
 
-    section = $(this).closest('.server-hidden-data')
+    section = $(this).closest('.hidden-data')
 
     data = section.find('.data')
 
@@ -32,18 +32,18 @@ $(document).ready ->
 
       section.append(data)
 
-      data.html( getServerHiddenData(section) )
+      data.html( getHiddenData(section) )
     else
       data.toggle()
 
 
   $(document).bind 'DOMNodeInserted', (e) ->
 
-    $(this).find('.server-hidden-data button.copy').not('.copy-binded').each (index) ->
+    $(this).find('.hidden-data button.copy').not('.copy-binded').each (index) ->
 
       $(this).addClass('copy-binded')
 
-      section = $(this).closest('.server-hidden-data')
+      section = $(this).closest('.hidden-data')
 
       # https://github.com/zeroclipboard/ZeroClipboard
       ZeroClipboard.setDefaults(
@@ -58,6 +58,6 @@ $(document).ready ->
       clip.glue( $(this) )
 
       clip.on 'dataRequested', ( client, args ) ->
-        data = getServerHiddenData(section)
+        data = getHiddenData(section)
 
         clip.setText(data)

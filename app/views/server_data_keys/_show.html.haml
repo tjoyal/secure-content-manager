@@ -12,13 +12,10 @@
       %th
         = resource.class.human_attribute_name :private_key
       %td
-        = server_hidden_data private_key_group_server_server_data_key_path(resource.server.group, resource.server, resource)
+        - url = private_key_group_server_server_data_key_path(resource.server.group, resource.server, resource)
+        = hidden_data :resource_url => url
     %tr
       %th
         = resource.class.human_attribute_name :public_key
       %td
-
-        .toggle-key
-          %button.btn.btn-success.btn-mini
-            Toggle
-          %pre.info{:style=>'display: none'}= resource.public_key
+        = hidden_data :data => resource.public_key, :copy => false
