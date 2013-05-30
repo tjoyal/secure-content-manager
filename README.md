@@ -2,20 +2,22 @@
 
 Managing your servers passwords and sensitive information.
 
-It also comes with minimal authentification and authorization mechanisms.
+It also comes with minimal authentication and authorization mechanisms.
 
 It is a working but FAR FROM READY FOR PRODUCTION prototype of what I need. Wait or help with it.
 
+## Known issues
+
+- Hidden Data : The copy button does not work properly on at least Ubuntu (Windows is ok). Flash extension related.
+
 ## Ideas in the backlog
 
-- Access to data via api
 - Audit
 - Backup solution
-- Cancan
 - Data Types in the form of plugins (external repositories)
 - Encrypt in database
-- Toggle Visibility of sensitive information
-- Some mode data types
+- Get data via easy to use api
+- Some more data types
 - etc...
 
 ## Getting Started
