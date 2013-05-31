@@ -13,9 +13,9 @@ $(document).ready ->
     e.stopPropagation()
 
     options = {
-      url: href,
-      success: (result) ->
-        $(target).html(result)
+      url: href
+      complete: (result) ->
+        $(target).html(result.responseText)
         $(document).trigger('ajaxAction')
     }
 
@@ -36,11 +36,11 @@ $(document).ready ->
     data = $(this).serialize()
 
     options = {
-      type: method,
-      url: action,
-      data: data,
-      success: (response) ->
-        $(target).html(response)
+      type: method
+      url: action
+      data: data
+      complete: (result) ->
+        $(target).html(result.responseText)
         $(document).trigger('ajaxAction')
     }
 
