@@ -9,16 +9,13 @@ class Ability
     end
 
     if user && user.admin?
-      #can :manage, [Project, ArtifactType, User]
+      can :manage, [Group, Server]
     else
-      can :read, Group
-      can :read, Server
+      can :read, Group, :user_groups => {:user_id => user.id, :read => true}
 
-      #can :read, Project, :user_projects => { :id => user.user_project_ids }
-
-      #can :read, ArtifactType do |artifact_type|
-      #  can :read, artifact_type.project
-      #end
+      can :read,   Server, :group => { :user_groups => { :user_id => user.id, :read => true } }
+      can :update, Server, :group => { :user_groups => { :user_id => user.id, :edit => true } }
+      can :manage, Server, :group => { :user_groups => { :user_id => user.id, :manage => true } }
     end
 
   end

@@ -29,18 +29,20 @@ class HomeController < ApplicationController
 
           end
 
-          children << {
-            :attr => {
-              :id => "group_#{group.id}_server_new",
-              :rel => 'server'
-            },
-            :data => {
-              :title => '+ new',
+          if can?(:create, group.servers.new)
+            children << {
               :attr => {
-                :href => new_group_server_path(group)
+                :id => "group_#{group.id}_server_new",
+                :rel => 'server'
+              },
+              :data => {
+                :title => '+ new',
+                :attr => {
+                  :href => new_group_server_path(group)
+                }
               }
             }
-          }
+          end
 
           {
             :attr => {

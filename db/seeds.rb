@@ -3,7 +3,7 @@ user = User.new(
     :email                 => "test@exemple.com",
     :password              => "testtest",
     :password_confirmation => "testtest",
-    :admin                 => false,
+    :admin                 => true,
 )
 user.save!
 

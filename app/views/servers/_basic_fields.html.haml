@@ -12,4 +12,4 @@
       %th
         = f.label :group
       %td
-        = f.select :group_id, Group.all.map {|x| [x.name, x.id]}
+        = f.select :group_id, Group.accessible_by(current_ability).map {|x| [x.name, x.id]}

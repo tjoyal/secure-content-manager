@@ -7,5 +7,7 @@
     = render "#{type}/show", :resource => key
 
 .form-actions
-  = edit_resource_button
-  = delete_resource_button
+  - if can? :edit, resource
+    = edit_resource_button
+  - if can? :destroy, resource
+    = delete_resource_button
