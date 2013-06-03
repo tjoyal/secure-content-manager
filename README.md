@@ -15,7 +15,6 @@ It is a working but FAR FROM READY FOR PRODUCTION prototype of what I need. Wait
 - Audit
 - Backup solution
 - Data Types in the form of plugins (external repositories)
-- Encrypt in database
 - Get data via easy to use api
 - Some more data types
 - etc...
@@ -30,9 +29,15 @@ It is a working but FAR FROM READY FOR PRODUCTION prototype of what I need. Wait
 
         rake db:create db:migrate db:seed
 
-3. Go to http://localhost:3000 and you'll be in business!
+3. Set required settings
 
-    The initial user credentials are :
+    3.1. You need to set your EncryptKey in /config/settings.yml (or in /config/settings/{environment}.yml)
+
+        This key will be used to encrypt secure content to the database (Ex.: private keys)
+
+4. Go to http://localhost:3000 and you'll be in business!
+
+    The initial demo user credentials are :
 
         Email:    test@exemple.com
         Password: testtest
