@@ -68,10 +68,11 @@
 
     .container-fluid
 
+      = bootstrap_flash
+
       - if content_for?(:sub_layout)
         = yield :sub_layout
       - else
-        = bootstrap_flash
         = yield
 
       -#%footer

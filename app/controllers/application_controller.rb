@@ -6,6 +6,17 @@ class ApplicationController < ActionController::Base
 
   before_filter :authenticate_user!
 
+  # Validate Encrypt Key presence
+  before_filter {
+    if Settings.encrypt_key.empty?
+      message = 'Encrypt key in your settings is undefined. Update with any private key of your own.'
+      flash[:error] ||= []
+      unless flash[:error].include?(message)
+        flash[:error] << message
+      end
+    end
+  }
+
   layout :select_layout
 
   def select_layout
