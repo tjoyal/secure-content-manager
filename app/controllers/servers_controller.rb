@@ -6,6 +6,14 @@ class ServersController < ApplicationController
   load_and_authorize_resource :group
   load_and_authorize_resource :server, :through => :group_id
 
+  def update
+    super do |format|
+      format.html {
+        redirect_to group_server_path(resource.group_id, resource)
+      }
+    end
+  end
+
   def destroy
     super do |format|
       format.html {
