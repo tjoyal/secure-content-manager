@@ -27,3 +27,6 @@ gem 'twitter-bootstrap-rails'
 
 # Javascript runtime
 gem 'therubyracer'
+
+gem 'attr_encrypted'
+gem 'rails_config'

@@ -8,7 +8,16 @@ class ServerDataKeysController < ApplicationController
 
   def private_key
     # todo : Log into audit
-    render :text => resource.private_key
+
+    begin
+      key = resource.private_key
+      status = 200
+    rescue OpenSSL::Cipher::CipherError => e
+      key = "Error : #{e.class} (Unable to open encrypted data)"
+      status = 500
+    end
+
+    render :text => key, :status => status
   end
 
 end

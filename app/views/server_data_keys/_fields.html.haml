@@ -15,7 +15,10 @@
         %th
           = f.label :private_key
         %td
-          = f.text_area :private_key
+          - begin
+            = f.text_area :private_key
+          - rescue OpenSSL::Cipher::CipherError => e
+            = e.inspect
       %tr
         %th
           = f.label :public_key

@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(:version => 20130529112639) do
   create_table "server_data_keys", :force => true do |t|
     t.integer  "server_id"
     t.text     "name"
-    t.text     "private_key"
+    t.text     "encrypted_private_key"
     t.text     "public_key"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
   end
 
   create_table "server_data_notes", :force => true do |t|
