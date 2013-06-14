@@ -66,6 +66,11 @@
                 %li
                   = link_to "Logout", destroy_user_session_path, :method => :delete
 
+            - else
+              %ul.nav.pull-right
+                %li
+                  = link_to "Login", new_user_session_path
+
     .container-fluid
 
       = bootstrap_flash

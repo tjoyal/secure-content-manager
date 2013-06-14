@@ -23,12 +23,11 @@ class ApplicationController < ActionController::Base
     request.xhr? ? false : 'application'
   end
 
-  before_filter :require_login
+  before_filter :authenticate_user!
 
-  def require_login
-    unless current_user
-      redirect_to new_user_session_path
-    end
+  # Overwriting the sign_out redirect path method
+  def after_sign_in_path_for(resource_or_scope)
+    root_path
   end
 
   rescue_from CanCan::AccessDenied do |exception|

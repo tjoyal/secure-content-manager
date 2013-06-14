@@ -12,7 +12,7 @@ namespace :demo do
 
 
     user = User.create!(
-        :email                 => "test2@exemple.com",
+        :email                 => "test2@example.com",
         :password              => "testtest",
         :password_confirmation => "testtest",
         :admin                 => false,

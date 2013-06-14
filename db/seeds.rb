@@ -1,6 +1,6 @@
 
 user = User.new(
-    :email                 => "test@exemple.com",
+    :email                 => "test@example.com",
     :password              => "testtest",
     :password_confirmation => "testtest",
     :admin                 => true,

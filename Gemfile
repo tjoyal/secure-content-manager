@@ -10,6 +10,16 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :test do
+  gem 'cucumber-rails', :require => false
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver'
+  gem 'rspec'
+  gem 'factory_girl_rails'
+end
+
 gem 'jquery-rails'
 
 gem 'haml'
