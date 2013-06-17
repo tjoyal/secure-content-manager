@@ -18,7 +18,9 @@ SecureContentManager::Application.routes.draw do
     resources :groups
   end
 
-  resource :home, :controller => :home
+  resource :home, :controller => :home do
+    get :profile
+  end
 
   root :to => 'home#show'
 

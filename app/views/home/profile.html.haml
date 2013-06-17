@@ -1,0 +1,42 @@
+= bootstrap_header 'Profile'
+
+%table.table.table-bordered
+  %tbody
+    %tr
+      %th
+        = User.human_attribute_name :email
+      %td
+        = current_user.email
+
+    %tr
+      %th
+        = User.human_attribute_name :admin
+      %td
+        = current_user.admin
+
+%h3
+  Authorizations - Groups
+
+%table.table.table-bordered
+  %thead
+    %tr
+      %th
+        Group
+      %th
+        Authorizations
+
+  %tbody
+    - current_user.user_groups.each do |user_group|
+      %tr
+        %td
+          = user_group.group.name
+        %td
+          - auth = []
+          - auth << 'read' if user_group.read
+          - auth << 'edit' if user_group.edit
+          - auth << 'manage' if user_group.manage
+
+          - if auth.empty?
+            = '---'
+          - else
+            = auth.join(', ')
