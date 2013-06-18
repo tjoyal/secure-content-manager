@@ -8,11 +8,14 @@
       %th= t('helpers.actions')
   %tbody
     - collection.each do |resource|
-      %tr
-        %td= link_to resource.name, resource_path(resource)
-        %td= l resource.created_at
-        %td
-          = edit_resource_button(resource, :size => :small)
-          = delete_resource_button(resource, :size => :small)
+      - if can? :edit, resource
+        %tr
+          %td= link_to resource.name, resource_path(resource)
+          %td= l resource.created_at
+          %td
+            = edit_resource_button(resource, :size => :small)
+            - if can? :delete, resource
+              = delete_resource_button(resource, :size => :small)
 
-= new_resource_button
+- if can? :create, resource_class
+  = new_resource_button
