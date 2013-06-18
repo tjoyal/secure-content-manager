@@ -1,0 +1,31 @@
+.fields
+  %h3
+    Password
+
+    = link_to_remove_fields "remove", f
+
+  %table.table.table-bordered.server-data.server-data-password
+    %tbody
+      %tr
+        %th
+          = f.label :name
+        %td
+          = f.text_field :name
+      %tr
+        %th
+          = f.label :username
+        %td
+          = f.text_field :username
+      %tr
+        %th
+          = f.label :password
+        %td
+          - begin
+            = f.text_field :password
+          - rescue OpenSSL::Cipher::CipherError => e
+            = e.inspect
+      %tr
+        %th
+          = f.label :note
+        %td
+          = f.text_area :note

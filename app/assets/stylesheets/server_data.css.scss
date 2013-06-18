@@ -30,4 +30,11 @@ table.server-data {
     }
   }
 
+  &.server-data-password {
+    textarea {
+      width: 500px;
+      height: 100px;
+    }
+  }
+
 }

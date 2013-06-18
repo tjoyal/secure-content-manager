@@ -1,0 +1,26 @@
+%h3
+  Password
+
+%table.table.table-bordered.server-data.server-data-password
+  %tbody
+    %tr
+      %th
+        = resource.class.human_attribute_name :name
+      %td
+        = resource.name
+    %tr
+      %th
+        = resource.class.human_attribute_name :username
+      %td
+        = resource.username
+    %tr
+      %th
+        = resource.class.human_attribute_name :password
+      %td
+        - url = password_group_server_server_data_password_path(resource.server.group, resource.server, resource)
+        = hidden_data :resource_url => url
+    %tr
+      %th
+        = resource.class.human_attribute_name :note
+      %td
+        = resource.note

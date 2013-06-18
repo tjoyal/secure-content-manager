@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130529112639) do
+ActiveRecord::Schema.define(:version => 20130618112242) do
 
   create_table "groups", :force => true do |t|
     t.string   "name"
@@ -35,6 +35,18 @@ ActiveRecord::Schema.define(:version => 20130529112639) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "server_data_passwords", :force => true do |t|
+    t.integer  "server_id"
+    t.string   "name"
+    t.string   "username"
+    t.string   "encrypted_password"
+    t.text     "note"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "server_data_passwords", ["server_id"], :name => "index_server_data_passwords_on_server_id"
 
   create_table "servers", :force => true do |t|
     t.string   "name"

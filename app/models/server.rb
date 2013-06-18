@@ -6,7 +6,8 @@ class Server < ActiveRecord::Base
   def self.data_types
     [
         :server_data_keys,
-        :server_data_notes
+        :server_data_notes,
+        :server_data_passwords
     ]
   end
 

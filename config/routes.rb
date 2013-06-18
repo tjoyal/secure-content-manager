@@ -7,10 +7,14 @@ SecureContentManager::Application.routes.draw do
       resources :server_data_keys do
         member do
           get :private_key
-          get :public_key
         end
       end
       resources :server_data_notes
+      resources :server_data_passwords do
+        member do
+          get :password
+        end
+      end
     end
   end
 
