@@ -19,8 +19,10 @@
       %td
         - url = password_group_server_server_data_password_path(resource.server.group, resource.server, resource)
         = hidden_data :resource_url => url
-    %tr
-      %th
-        = resource.class.human_attribute_name :note
-      %td
-        = resource.note
+
+    - if resource.note.present?
+      %tr
+        %th
+          = resource.class.human_attribute_name :note
+        %td
+          = resource.note
