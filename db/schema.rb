@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20130618112242) do
     t.text     "name"
     t.text     "encrypted_private_key"
     t.text     "public_key"
+    t.text     "note"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
   end

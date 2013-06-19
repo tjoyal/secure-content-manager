@@ -19,3 +19,8 @@
         = resource.class.human_attribute_name :public_key
       %td
         = hidden_data :data => resource.public_key, :copy => false
+    %tr
+      %th
+        = resource.class.human_attribute_name :note
+      %td
+        %pre= resource.note

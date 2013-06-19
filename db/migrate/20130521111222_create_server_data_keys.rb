@@ -7,6 +7,7 @@ class CreateServerDataKeys < ActiveRecord::Migration
       t.text :name
       t.text :encrypted_private_key
       t.text :public_key
+      t.text :note
 
       t.timestamps
     end
