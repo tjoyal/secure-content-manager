@@ -1,4 +1,8 @@
-class ServerDataKey < ActiveRecord::Base
+class ServerData::Key < ActiveRecord::Base
+
+  include ServerData
+
+  set_table_name :server_data_keys
 
   attr_accessible :name, :private_key, :public_key, :note
 

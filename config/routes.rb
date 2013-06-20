@@ -4,13 +4,13 @@ SecureContentManager::Application.routes.draw do
 
   resources :groups do
     resources :servers do
-      resources :server_data_keys do
+      resources :keys, :controller => 'server_data/keys' do
         member do
           get :private_key
         end
       end
-      resources :server_data_notes
-      resources :server_data_passwords do
+      #resources :notes, :controller => 'server_data/notes'
+      resources :passwords, :controller => 'server_data/passwords' do
         member do
           get :password
         end

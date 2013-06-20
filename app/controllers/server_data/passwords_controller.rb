@@ -1,6 +1,8 @@
-class ServerDataPasswordsController < ApplicationController
+class ServerData::PasswordsController < ServerDataController
 
   inherit_resources
+  defaults :resource_class => ServerData::Password, :collection_name => 'server_data_passwords', :instance_name => 'server_data_password'
+
   belongs_to :group
   belongs_to :server
 

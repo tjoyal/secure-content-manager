@@ -1,6 +1,8 @@
-class ServerDataKeysController < ApplicationController
+class ServerData::KeysController < ServerDataController
 
   inherit_resources
+  defaults :resource_class => ServerData::Key, :collection_name => 'server_data_keys', :instance_name => 'server_data_key'
+
   belongs_to :group
   belongs_to :server
 

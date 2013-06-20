@@ -5,17 +5,20 @@ class Server < ActiveRecord::Base
 
   def self.data_types
     [
-        :server_data_keys,
-        :server_data_notes,
-        :server_data_passwords
+        :keys,
+        :notes,
+        :passwords
     ]
   end
 
   self.data_types.each do |type|
-    has_many type, :dependent => :destroy
-    accepts_nested_attributes_for type, :allow_destroy => true
 
-    attr_accessible "#{type}_attributes".to_sym
+    relation = "server_data_#{type}".to_sym
+
+    has_many relation, :class_name => "ServerData::#{type.to_s.classify}", :dependent => :destroy
+    accepts_nested_attributes_for relation, :allow_destroy => true
+
+    attr_accessible "#{relation}_attributes".to_sym
   end
 
 end

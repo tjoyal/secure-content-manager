@@ -5,6 +5,6 @@ en:
   servers:
     form:
       new_section:
-        server_data_keys: "New Key"
-        server_data_notes: "New Note"
-        server_data_passwords: "New Password"
+        keys: "New Key"
+        notes: "New Note"
+        passwords: "New Password"

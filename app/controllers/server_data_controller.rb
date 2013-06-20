@@ -1,0 +1,3 @@
+class ServerDataController < ApplicationController
+
+end

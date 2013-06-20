@@ -4,8 +4,8 @@
 
   #server-data
     - Server.data_types.each do |type|
-      = f.fields_for type do |data|
-        = render "#{type}/fields", :f => data
+      = f.fields_for "server_data_#{type}" do |data|
+        = render "server_data/#{type}/fields", :f => data
 
   .btn-group
     = link_to '#', :class => ['btn', 'btn-warning', 'dropdown-toggle'], 'data-toggle' => 'dropdown' do
@@ -14,7 +14,7 @@
 
     %ul.dropdown-menu
       - Server.data_types.each do |type|
-        %li= link_to_add_fields "Add #{t('.new_section.' + type.to_s)}", f, type, :partial => "#{type}/fields", :container => '#server-data'
+        %li= link_to_add_fields "Add #{t('.new_section.' + type.to_s)}", f, "server_data_#{type}".to_sym, :partial => "server_data/#{type}/fields", :container => '#server-data'
 
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'

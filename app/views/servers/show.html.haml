@@ -3,8 +3,8 @@
 = render 'basic_show', :resource => resource
 
 - Server.data_types.each do |type|
-  - resource.send(type).each do |key|
-    = render "#{type}/show", :resource => key
+  - resource.send("server_data_#{type}").each do |key|
+    = render "server_data/#{type}/show", :resource => key
 
 .form-actions
   - if can? :edit, resource
