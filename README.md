@@ -6,10 +6,6 @@ It also comes with minimal authentication and authorization mechanisms.
 
 It is a working but FAR FROM READY FOR PRODUCTION prototype of what I need. Wait or help with it.
 
-## Known issues
-
-- Hidden Data : The copy button does not work properly on at least Ubuntu (Windows is ok). Flash extension related.
-
 ## Ideas in the backlog
 
 - Audit
