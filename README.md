@@ -31,11 +31,15 @@ It is a working but FAR FROM READY FOR PRODUCTION prototype of what I need. Wait
 
         This key will be used to encrypt secure content to the database (Ex.: private keys)
 
-4. Go to http://localhost:3000 and you'll be in business!
+4. Start the server
+
+    rails s
+
+5. Go to http://localhost:3000 and you'll be in business!
 
     The initial demo user credentials are :
 
-        Email:    test@exemple.com
+        Email:    test@example.com
         Password: testtest
 
 ## License
