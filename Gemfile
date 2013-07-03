@@ -40,3 +40,5 @@ gem 'therubyracer'
 
 gem 'attr_encrypted'
 gem 'rails_config'
+
+gem 'rails_admin'

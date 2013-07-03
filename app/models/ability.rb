@@ -9,7 +9,7 @@ class Ability
     end
 
     if user && user.admin?
-      can :manage, [Group, Server]
+      can :manage, [Group, Server, User]
       can :show, :group_settings
     else
       can :read, Group, :user_groups => {:user_id => user.id, :read => true}

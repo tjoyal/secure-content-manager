@@ -69,6 +69,9 @@
                         %li= link
 
               %ul.nav.pull-right
+                - if current_user.admin?
+                  %li
+                    = link_to 'admin', '/admin'
                 %li
                   = link_to current_user.email, '/home/profile'
                 %li
