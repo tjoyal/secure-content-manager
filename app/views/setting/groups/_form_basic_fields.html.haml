@@ -5,6 +5,12 @@
   %tbody
     %tr
       %th
+        = f.label :parent
+      %td
+        - available_parents = Group.root.where('id is not ?', resource.id)
+        = f.select :parent_id, available_parents.map{|group| [group.name, group.id]}, :include_blank => true
+    %tr
+      %th
         = f.label :name
       %td
         = f.text_field :name, :class => 'text_field'

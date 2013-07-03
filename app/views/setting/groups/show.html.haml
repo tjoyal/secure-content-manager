@@ -3,6 +3,12 @@
 %dl.dl-horizontal
   %dt
     %strong
+      = resource_class.human_attribute_name(:parent_id)
+      = ':'
+  %dd
+    = resource.parent.try(:name)
+  %dt
+    %strong
       = resource_class.human_attribute_name(:name)
       = ':'
   %dd

@@ -4,6 +4,7 @@
   %thead
     %tr
       %th= resource_class.human_attribute_name(:name)
+      %th= resource_class.human_attribute_name(:parent_id)
       %th= resource_class.human_attribute_name(:created_at)
       %th= t('helpers.actions')
   %tbody
@@ -11,6 +12,7 @@
       - if can? :edit, resource
         %tr
           %td= link_to resource.name, resource_path(resource)
+          %td= resource.parent.try(:name)
           %td= l resource.created_at
           %td
             = edit_resource_button(resource, :size => :small)
