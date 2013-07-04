@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   # todo: Fix device integration
   # check_authorization
 
+  before_filter :initial_setup
   before_filter :authenticate_user!
 
   # Validate Encrypt Key presence
@@ -23,7 +24,11 @@ class ApplicationController < ActionController::Base
     request.xhr? ? false : 'application'
   end
 
-  before_filter :authenticate_user!
+  def initial_setup
+      unless Setting.find_by_name(:setup_initial_user)
+        redirect_to initial_user_setup_path
+      end
+  end
 
   # Overwriting the sign_out redirect path method
   def after_sign_in_path_for(resource_or_scope)

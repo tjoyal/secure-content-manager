@@ -1,0 +1,31 @@
+= bootstrap_header 'Initial User'
+
+%center
+
+  - initial_user = params[:initial_user] || {}
+
+  = form_for :initial_user do |f|
+
+    %table.table.table-bordered{:style => 'width: 50%'}
+      %tbody
+        %tr
+          %th{:width => '40%'}
+            = User.human_attribute_name :email
+          %td
+            = f.text_field :email, :value => initial_user[:email]
+
+        %tr
+          %th
+            = User.human_attribute_name :password
+          %td
+            = f.password_field :password
+
+        %tr
+          %th
+            = User.human_attribute_name :password_confirmation
+          %td
+            = f.password_field :password_confirmation
+
+      %tr
+        %td{:colspan => 2, :style => 'text-align: right'}
+          = f.submit nil, :class => 'btn btn-primary'

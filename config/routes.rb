@@ -28,6 +28,13 @@ SecureContentManager::Application.routes.draw do
     get :profile
   end
 
+  resource :setup, :controller => :setup do
+    get :initial_user
+    post :initial_user
+  end
+
+
+
   root :to => 'home#show'
 
   match '*a', :to => 'errors#routing'
