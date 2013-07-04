@@ -37,10 +37,7 @@ It is a working but FAR FROM READY FOR PRODUCTION prototype of what I need. Wait
 
 5. Go to http://localhost:3000 and you'll be in business!
 
-    The initial demo user credentials are :
-
-        Email:    test@example.com
-        Password: testtest
+    The system will ask you to create your initial admin user on first use
 
 ## License
 
