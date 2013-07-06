@@ -59,7 +59,7 @@ class SetupController < ApplicationController
       # Load yaml
       filename = Rails.root.join('config', 'settings.local.yml')
       if File.exist?(filename)
-        settings = YAML.load_file(filename)
+        settings = YAML.load_file(filename) || {}
         settings['encrypt_key'] = encrypt_key
       else
         settings = {}
