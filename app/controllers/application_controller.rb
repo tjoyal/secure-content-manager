@@ -6,9 +6,19 @@ class ApplicationController < ActionController::Base
 
   before_filter :initial_setup
   before_filter :authenticate_user!
+  before_filter :ensure_encrypt_key
 
-  # Validate Encrypt Key presence
-  before_filter {
+  def add_flash(type, text)
+    flash[type] ||= []
+    flash[type] << text
+  end
+
+  def add_flash_now(type, text)
+    flash.now[type] ||= []
+    flash.now[type] << text
+  end
+
+  def ensure_encrypt_key
     if Settings.encrypt_key.empty?
       message = 'Encrypt key in your settings is undefined. Update with any private key of your own.'
       flash[:error] ||= []
@@ -16,7 +26,7 @@ class ApplicationController < ActionController::Base
         flash[:error] << message
       end
     end
-  }
+  end
 
   layout :select_layout
 
@@ -25,9 +35,11 @@ class ApplicationController < ActionController::Base
   end
 
   def initial_setup
-      unless Setting.find_by_name(:setup_initial_user)
-        redirect_to initial_user_setup_path
-      end
+    if Setting.find_by_name(:setup_initial_user).blank?
+      redirect_to initial_user_setup_path
+    elsif Setting.find_by_name(:setup_encrypt_key).blank?
+      redirect_to encrypt_key_setup_path
+    end
   end
 
   # Overwriting the sign_out redirect path method

@@ -31,6 +31,8 @@ SecureContentManager::Application.routes.draw do
   resource :setup, :controller => :setup do
     get :initial_user
     post :initial_user
+    get :encrypt_key
+    post :encrypt_key
   end
 
 

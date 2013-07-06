@@ -1,0 +1,28 @@
+= bootstrap_header 'Initial Setup'
+
+%h3
+  Creating the encrypt key
+
+%div
+  Be certain to keep a copy of this secret key somewhere safe.
+  %br
+  It will be required to access encrypted information in your database in case of a disaster recovery.
+%br
+
+%center
+
+  - encrypt_key = params[:encrypt_key] || {}
+
+  = form_for :encrypt_key do |f|
+
+    %table.table.table-bordered{:style => 'width: 50%'}
+      %tbody
+        %tr
+          %th{:width => '40%'}
+            = User.human_attribute_name :key
+          %td
+            = f.text_field :key, :value => encrypt_key[:key]
+
+      %tr
+        %td{:colspan => 2, :style => 'text-align: right'}
+          = f.submit nil, :class => 'btn btn-primary'
