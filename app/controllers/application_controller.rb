@@ -5,8 +5,10 @@ class ApplicationController < ActionController::Base
   # check_authorization
 
   before_filter :initial_setup
-  before_filter :authenticate_user!
+  before_filter :authenticate_or_token
   before_filter :ensure_encrypt_key
+
+  layout :select_layout
 
   def add_flash(type, text)
     flash[type] ||= []
@@ -18,6 +20,8 @@ class ApplicationController < ActionController::Base
     flash.now[type] << text
   end
 
+  private
+
   def ensure_encrypt_key
     if Settings.encrypt_key.empty?
       message = 'Encrypt key in your settings is undefined. Update with any private key of your own.'
@@ -28,7 +32,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  layout :select_layout
+  def authenticate_or_token
+    if params[:api_key].present?
+      if user = User.find_by_api_key(params[:api_key])
+        @current_user = user
+        return current_user
+      end
+    end
+    authenticate_user!
+  end
 
   def select_layout
     request.xhr? ? false : 'application'
