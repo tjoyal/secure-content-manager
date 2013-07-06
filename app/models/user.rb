@@ -14,4 +14,12 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :user_groups, :dependent => :destroy
+
+  def randomize_api_key!
+    begin
+      self.api_key = SecureRandom.hex
+    end while self.class.exists?(:api_key => api_key)
+
+    self.save!
+  end
 end

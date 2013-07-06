@@ -15,6 +15,13 @@ class HomeController < ApplicationController
 
   end
 
+  def regenerate_api_key
+    current_user.randomize_api_key!
+
+    add_flash :notice, 'A new Api Key was generated for your account'
+    redirect_to profile_home_path
+  end
+
   private
 
   def get_tree(parent = nil)

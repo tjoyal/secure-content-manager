@@ -10,9 +10,13 @@
 
     %tr
       %th
-        = User.human_attribute_name :admin
+        = User.human_attribute_name :api_key
       %td
-        = current_user.admin
+        = current_user.api_key
+        - if current_user.api_key.blank?
+          = link_to 'Generate Api Key', regenerate_api_key_home_path, :class => 'btn btn-primary btn-mini'
+        - else
+          = link_to 'Regenerate Api Key', regenerate_api_key_home_path, :class => 'btn btn-primary btn-mini', :confirm => 'This will revoke your current key. Continue?'
 
 %h3
   Authorizations - Groups

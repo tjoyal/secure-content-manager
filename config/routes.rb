@@ -26,6 +26,7 @@ SecureContentManager::Application.routes.draw do
 
   resource :home, :controller => :home do
     get :profile
+    get :regenerate_api_key
   end
 
   resource :setup, :controller => :setup do
