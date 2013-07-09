@@ -36,26 +36,15 @@ $(document).ready ->
     else
       data.toggle()
 
-
-  # https://github.com/zeroclipboard/ZeroClipboard
-  ZeroClipboard.setDefaults {
-    moviePath: '/assets/zero_clipboard/ZeroClipboard.swf',
-    hoverClass: "active"
-  }
-
-  clip = new ZeroClipboard()
-
-  clip.on 'dataRequested', ( client, args ) ->
-    section = $(this).closest('.hidden-data')
-
-    data = getHiddenData(section)
-
-    clip.setText(data)
-
   $(document).bind 'DOMNodeInserted', (e) ->
 
     $(this).find('.hidden-data button.copy').not('.copy-binded').each (index) ->
 
       $(this).addClass('copy-binded')
 
-      clip.glue( $(this).get(0) )
+      this.zeroDataRequested = ->
+        section = $(this).closest('.hidden-data')
+        data = getHiddenData(section)
+        clip.setText(data)
+
+      clip.glue( this )

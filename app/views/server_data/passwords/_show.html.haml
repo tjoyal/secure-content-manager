@@ -17,7 +17,11 @@
       %th
         = resource.class.human_attribute_name :password
       %td
-        - url = password_group_server_password_path(resource.server.group, resource.server, resource)
+        - url = password_group_server_password_url(resource.server.group, resource.server, resource)
+
+        = right_extra_icons do |builder|
+          = builder.api_url("#{url}?api_key=[ApiKey]")
+
         = hidden_data :resource_url => url
 
     - if resource.note.present?

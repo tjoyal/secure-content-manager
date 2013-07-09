@@ -12,7 +12,11 @@
       %th
         = resource.class.human_attribute_name :private_key
       %td
-        - url = private_key_group_server_key_path(resource.server.group, resource.server, resource)
+        - url = private_key_group_server_key_url(resource.server.group, resource.server, resource)
+
+        = right_extra_icons do |builder|
+          = builder.api_url("#{url}?api_key=[ApiKey]")
+
         = hidden_data :resource_url => url
     %tr
       %th
