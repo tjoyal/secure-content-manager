@@ -60,10 +60,11 @@ class SetupController < ApplicationController
       filename = Rails.root.join('config', 'settings.local.yml')
       if File.exist?(filename)
         settings = YAML.load_file(filename) || {}
-        settings['encrypt_key'] = encrypt_key
       else
         settings = {}
       end
+      
+      settings['encrypt_key'] = encrypt_key
 
       File.write(filename, settings.to_yaml)
       Settings.reload!
