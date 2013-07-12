@@ -22,7 +22,13 @@ class Group < ActiveRecord::Base
       recursive_children += current.children
     end
 
-    Group.where('not id in (?)', [self.id] + recursive_children.map(&:id))
+    groups = [self.id].compact + recursive_children.map(&:id)
+    if groups.empty?
+      Group.all
+    else 
+      Group.where('not id in (?)',  groups)
+    end
+
   end
 
 
