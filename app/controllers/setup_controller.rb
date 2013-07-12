@@ -2,7 +2,7 @@ class SetupController < ApplicationController
 
   skip_before_filter :initial_setup
   skip_before_filter :ensure_encrypt_key
-  skip_before_filter :authenticate_user!
+  skip_before_filter :authenticate_or_token
 
   def initial_user
 
